@@ -8,31 +8,31 @@ interface AccountLoyaltyInterface {
 }
 
 export class AccountLoyaltyEntity {
-  private id: string
-  private percentage: number
-  private price: number
+  private _id: string
+  private _percentage: number
+  private _price: number
 
   constructor(dto: AccountLoyaltyInterface) {
-    this.id = dto.id
-    this.percentage = dto.percentage
-    this.price = dto.price
+    this._id = dto.id
+    this._percentage = dto.percentage
+    this._price = dto.price
   }
 
   get() {
     return {
-      id: this.id,
-      percentage: this.percentage,
-      price: this.price,
+      id: this._id,
+      percentage: this._percentage,
+      price: this._price,
     }
   }
 
   create(dto: CreateAccountLoyaltyDto) {
-    this.percentage = dto.percentage
-    this.price = dto.price
+    this._percentage = dto.percentage
+    this._price = dto.price
   }
 
   update(dto: UpdateAccountLoyaltyDto) {
-    if (dto.percentage) this.percentage = dto.percentage
-    if (dto.price) this.price = dto.price
+    if (dto.percentage) this._percentage = dto.percentage
+    if (dto.price) this._price = dto.price
   }
 }

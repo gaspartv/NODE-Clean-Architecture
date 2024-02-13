@@ -12,47 +12,47 @@ interface StoreEntityInterface {
 }
 
 export class StoreEntity {
-  private id: string
-  private name: string
-  private qrcode: string
-  private email: string
-  private cellphone: string
-  private temporaryPassword: string
+  private _id: string
+  private _name: string
+  private _qrcode: string
+  private _email: string
+  private _cellphone: string
+  private _temporaryPassword: string
 
   constructor(dto: StoreEntityInterface) {
-    this.id = dto.id
-    this.name = dto.name
-    this.qrcode = dto.qrcode
-    this.email = dto.email
-    this.cellphone = dto.cellphone
-    this.temporaryPassword = dto.temporaryPassword
+    this._id = dto.id
+    this._name = dto.name
+    this._qrcode = dto.qrcode
+    this._email = dto.email
+    this._cellphone = dto.cellphone
+    this._temporaryPassword = dto.temporaryPassword
   }
 
   get() {
     return {
-      id: this.id,
-      name: this.name,
-      qrcode: this.qrcode,
-      email: this.email,
-      cellphone: this.cellphone,
-      temporaryPassword: this.temporaryPassword,
+      id: this._id,
+      name: this._name,
+      qrcode: this._qrcode,
+      email: this._email,
+      cellphone: this._cellphone,
+      temporaryPassword: this._temporaryPassword,
     }
   }
 
   create(dto: CreateStoreDto) {
-    this.id = randomUUID().toString()
-    this.name = dto.name
-    this.qrcode = dto.qrcode
-    this.email = dto.email
-    this.cellphone = dto.cellphone
-    this.temporaryPassword = dto.temporaryPassword
+    this._id = randomUUID().toString()
+    this._name = dto.name
+    this._qrcode = dto.qrcode
+    this._email = dto.email
+    this._cellphone = dto.cellphone
+    this._temporaryPassword = dto.temporaryPassword
   }
 
   update(dto: UpdateStoreDto) {
-    if (dto.name) this.name = dto.name
-    if (dto.qrcode) this.qrcode = dto.qrcode
-    if (dto.email) this.email = dto.email
-    if (dto.cellphone) this.cellphone = dto.cellphone
-    if (dto.temporaryPassword) this.temporaryPassword = dto.temporaryPassword
+    if (dto.name) this._name = dto.name
+    if (dto.qrcode) this._qrcode = dto.qrcode
+    if (dto.email) this._email = dto.email
+    if (dto.cellphone) this._cellphone = dto.cellphone
+    if (dto.temporaryPassword) this._temporaryPassword = dto.temporaryPassword
   }
 }
