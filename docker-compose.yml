@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-thygas-coins
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: docker
+      MYSQL_DATABASE: thygas_coins
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: docker
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
