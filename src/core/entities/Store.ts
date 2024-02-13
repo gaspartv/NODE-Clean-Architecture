@@ -28,14 +28,7 @@ export class StoreEntity {
     this.temporaryPassword = dto.temporaryPassword
   }
 
-  get(): {
-    id: string
-    name: string
-    qrcode: string
-    email: string
-    cellphone: string
-    temporaryPassword: string
-  } {
+  get() {
     return {
       id: this.id,
       name: this.name,
