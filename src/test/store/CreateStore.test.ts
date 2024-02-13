@@ -11,9 +11,10 @@ test('Should create a new store', async () => {
     cellphone: '32999887766',
     temporaryPassword: '123456',
   })
-  expect(storeCreate.name).toBe('Teste')
-  expect(storeCreate.qrcode).toBe('/image/qrcode.png')
-  expect(storeCreate.email).toBe('test@mail.com')
-  expect(storeCreate.cellphone).toBe('32999887766')
-  expect(storeCreate.temporaryPassword).toBe('123456')
+  const store = storeCreate.get()
+  expect(store.name).toBe('Teste')
+  expect(store.qrcode).toBe('/image/qrcode.png')
+  expect(store.email).toBe('test@mail.com')
+  expect(store.cellphone).toBe('32999887766')
+  expect(store.temporaryPassword).toBe('123456')
 })

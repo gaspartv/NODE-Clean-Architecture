@@ -22,9 +22,7 @@ export default class UpdateAccountLoyalty {
       throw new AppError('account loyalty not found', 404)
     }
 
-    const AccountLoyalty = new AccountLoyaltyEntity({
-      ...accountLoyaltyFound,
-    })
+    const AccountLoyalty = new AccountLoyaltyEntity(accountLoyaltyFound)
     AccountLoyalty.update(dto)
 
     const accountLoyalty =

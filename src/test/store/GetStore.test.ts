@@ -4,7 +4,8 @@ import StoreRepositoryMemory from '../../infra/repositories/StoreRepositoryMemor
 test("Should get a store's information", async () => {
   const storeRepositoryMemory = new StoreRepositoryMemory()
   const getStore = new GetStore(storeRepositoryMemory)
-  const store = await getStore.execute()
+  const Store = await getStore.execute()
+  const store = Store.get()
   expect(store.name).toBe('Test')
   expect(store.qrcode).toBe('/image/qrcode.png')
   expect(store.email).toBe('test@mail.com')

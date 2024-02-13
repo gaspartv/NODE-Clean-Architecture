@@ -1,4 +1,4 @@
-import { ResponseStoreDto } from '../../dtos/store/ResponseStore'
+import { StoreEntity } from '../../entities/Store'
 import StoreRepository from '../../repositories/StoreRepository'
 
 export default class GetStore {
@@ -8,7 +8,7 @@ export default class GetStore {
     this.storeRepository = storeRepository
   }
 
-  async execute(): Promise<ResponseStoreDto> {
+  async execute(): Promise<StoreEntity> {
     const store = await this.storeRepository.getStore()
 
     return store

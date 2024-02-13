@@ -1,5 +1,4 @@
 import { AppError } from '../../../domain/exceptions/errors'
-import { ResponseStoreDto } from '../../dtos/store/ResponseStore'
 import UpdateStoreDto from '../../dtos/store/UpdateStore'
 import { StoreEntity } from '../../entities/Store'
 import StoreRepository from '../../repositories/StoreRepository'
@@ -11,15 +10,16 @@ export default class UpdateStore {
     this.storeRepository = storeRepository
   }
 
-  async execute(id: string, dto: UpdateStoreDto): Promise<ResponseStoreDto> {
+  async execute(id: string, dto: UpdateStoreDto): Promise<StoreEntity> {
     const storeFound = await this.storeRepository.getStore()
     if (!storeFound) {
       throw new AppError('store not found', 404)
     }
-    const Store = new StoreEntity({
-      ...storeFound,
-    })
+
+    const Store = new StoreEntity()
+    Store.set(storeFound.get())
     Store.update(dto)
+
     const store = await this.storeRepository.updateStore(id, Store)
     return store
   }
